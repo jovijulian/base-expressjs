@@ -37,7 +37,7 @@ Sebuah *boilerplate* atau *base code* yang kokoh dan terukur untuk memulai proye
 ├── app.js                  # Definisi dan konfigurasi aplikasi Express
 ├── server.js               # Titik masuk untuk menjalankan server
 └── package.json
-
+```
 ---
 
 ## 🚀 Panduan Memulai
