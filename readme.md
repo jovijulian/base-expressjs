@@ -18,18 +18,18 @@ Sebuah *boilerplate* atau *base code* yang kokoh dan terukur untuk memulai proye
 ---
 
 ## 📁 Struktur Proyek
-/
+```
 ├── src/
 |   ├── api/
 |   |   ├── controllers/    # Logika request & response
 |   |   ├── middlewares/    # Fungsi penengah (auth, error, dsb)
-|   |   ├── models/         #  Definisi skema database
+|   |   ├── models/         # (Opsional) Definisi skema database
 |   |   ├── repositories/   # Lapisan abstraksi untuk query database
 |   |   ├── routes/         # Definisi semua endpoint API
 |   |   └── services/       # Logika bisnis utama aplikasi
 |   |
 |   ├── config/             # Konfigurasi database, dll.
-|   ├── templates/          # (Opsional) Template email, dsb.
+|   ├── templates/          # Template email, dsb.
 |   └── utils/              # Fungsi helper/utilitas
 |
 ├── .env.example            # Contoh file variabel lingkungan
@@ -37,6 +37,7 @@ Sebuah *boilerplate* atau *base code* yang kokoh dan terukur untuk memulai proye
 ├── app.js                  # Definisi dan konfigurasi aplikasi Express
 ├── server.js               # Titik masuk untuk menjalankan server
 └── package.json
+
 ---
 
 ## 🚀 Panduan Memulai
