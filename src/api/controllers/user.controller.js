@@ -1,11 +1,11 @@
 const userService = require('../services/user.service');
-const { success, error } = require('../../utils/response');
+const { success, error, paginated } = require('../../utils/response');
 
 class UserController {
 
     async create(req, res) {
         try {
-            const data = await userService.createUser(req);
+            const data = await userService.create(req);
             return success(res, 201, data, 'User created successfully');
         } catch (err) {
             return error(res, err.statusCode || 500, err);

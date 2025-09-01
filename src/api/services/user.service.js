@@ -20,14 +20,28 @@ class UserService {
     }
 
     async create(request) {
-        const payload = request.body;
+        const { name, email, password, phone } = request.body;
         return knexConnection.transaction(async (trx) => {
+            const existingUser = await userRepository.findByEmail(email);
+            if (existingUser) {
+                const error = new Error('Email already in use.');
+                error.statusCode = 409;
+                throw error;
+            }
 
-            payload.created_at = formatDateTime();
-            payload.updated_at = formatDateTime();
+            const hashedPassword = await bcrypt.hash(password, 10);
 
-            const data = await userRepository.create(payload, trx);
-            return data;
+            const newUser = await userRepository.create({
+                name,
+                email,
+                password: hashedPassword,
+                phone,
+                role: request.body.role ? request.body.role : 2,
+                created_at: formatDateTime(),
+                updated_at: formatDateTime(),
+            });
+
+            return newUser;
         });
     }
 
